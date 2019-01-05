@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>照片墙</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+    <link rel="stylesheet" href="../style/animate.min.css">
+    <link rel="stylesheet" href="../style/luck.css">
+    <link rel="stylesheet" href="../layui/css/layui.css"  media="all">
+    <style>
+        html, body {
+            height: 100%;
+        }
+        body {
+            background-color: #000000;
+            background:url("../images/Flyer-bg.jpg") no-repeat;
+            background-size: 100%;
+            margin: 0;
+            font-family: Helvetica, sans-serif;;
+            overflow: hidden;
+        }
+
+        a {
+            color: #ffffff;
+        }
+
+        #info {
+            position: absolute;
+            width: 100%;
+            color: #ffffff;
+            padding: 5px;
+            font-family: Monospace;
+            font-size: 13px;
+            font-weight: bold;
+            text-align: center;
+            z-index: 1;
+        }
+
+        #menu {
+            position: absolute;
+            bottom: 20px;
+            width: 100%;
+            text-align: center;
+        }
+
+        .element {
+            width: 100px;/* 120 160 */
+            height: 100px;
+            box-shadow: 0px 0px 12px rgba(0,255,255,0.5);
+            border: 1px solid rgba(127,255,255,0.25);
+            text-align: center;
+            border-radius:100px;
+            cursor: default;
+        }
+
+        .element:hover {
+            box-shadow: 0px 0px 12px rgba(0,255,255,0.75);
+            border: 1px solid rgba(127,255,255,0.75);
+        }
+        .element img{
+
+            border-radius:100px;
+            width:100px;
+            height:100px;
+        }
+
+        .element .number {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 12px;
+            color: rgba(127,255,255,0.75);
+        }
+
+        .element .symbol {
+            position: absolute;
+            top: 40px;
+            left: 0px;
+            right: 0px;
+            font-size: 60px;
+            font-weight: bold;
+            color: rgba(255,255,255,0.75);
+            text-shadow: 0 0 10px rgba(0,255,255,0.95);
+        }
+
+        .element .details {
+            position: absolute;
+            bottom: 15px;
+            left: 0px;
+            right: 0px;
+            font-size: 12px;
+            color: rgba(127,255,255,0.75);
+        }
+
+        button {
+            color: rgba(127,255,255,0.75);
+            background: transparent;
+            outline: 1px solid rgba(127,255,255,0.75);
+            border: 0px;
+            padding: 5px 10px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: rgba(0,255,255,0.5);
+        }
+        button:active {
+            color: #000000;
+            background-color: rgba(0,255,255,0.75);
+        }
+        .show_info{position:fixed;background-color:rgba(0,0,0,.0);padding:10px;width:300px;margin:0 auto;left: 0;right:0;border-radius: 5px;box-shadow: 0 0 10px 0 #fff;top:30%;}
+        .show_info img{display:block;margin:auto;border-radius: 5px;box-shadow: 0 0 10px 0 #888;}
+        .show_info .intro{color:#fff;text-indent:20px;margin-top:10px;height:65px;overflow:hidden;display: -webkit-box;-webkit-line-clamp: 3;-webkit-box-orient: vertical;}
+        .show_info .info_my{text-align: center;}
+        .show_info .info_my > *{display:inline-block !important;vertical-align: middle;}
+        .show_info .info_my .info_mem{color:#fff;max-width:120px;}
+        .show_info .info_my .info_mem > div{text-align: left;}
+        .show_info .info_my .info_mem > div.nickname{max-width: 120px;text-overflow: ellipsis;overflow: hidden;white-space: nowrap;}
+
+        /*抽奖*/
+        .layui-form-item .layui-input-inline{
+            width: 150px;
+        }
+        .layui-form-label{
+            padding: 9px 0px 9px 10px;
+            text-align: left;
+        }
+    </style>
+
+</head>
+<body>
+<script src="../lib/jquery.min.js"></script>
+<script src="../lib/three.js"></script>
+<script src="../lib/tween.min.js"></script>
+<script src="../lib/TrackballControls.js"></script>
+<script src="../lib/CSS3DRenderer.js"></script>
+
+<div id="container"></div>
+<div id="info"></div>
+<div id="menu">
+    <button id="fast">加快</button>
+    <button id="reset">还原</button>
+    <button id="luckBtn">抽奖</button>
+</div>
+
+<div class="show_info animated" style="display:none;">
+    <div class="info_my" >
+        <img style="border-radius:100px" src="../images/10.jpg" width="100px" height="100px" id="comeUser" />
+        <div class="info_mem">
+            <div class="nickname"></div>
+            <div class="id"></div>
+            <div class="vote"></div>
+        </div>
+    </div>
+    <div class="intro">欢迎XXXX</div>
+</div>
+
+<div class="box">
+    <div class="change-type">
+        <div class="type-left" :class="showType == true ? 'showListType':''">
+            <h4>
+                奖项设置
+            </h4>
+            <form class="layui-form" action="" style="margin-top: 5px;">
+                <div class="layui-form-item">
+                    <label class="layui-form-label">选择奖项</label>
+                    <div class="layui-input-inline">
+                        <select name="quiz1">
+                            <option value="浙江" selected="">特等奖</option>
+                            <option value="你的工号">一等奖</option>
+                            <option value="你最喜欢的老师">二等奖</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="layui-form-item">
+                    <label class="layui-form-label">抽取人数</label>
+                    <div class="layui-input-inline">
+                        <input type="text" name="username" lay-verify="required" placeholder="请输入" autocomplete="off" class="layui-input">
+                    </div>
+                </div>
+
+                <div class="layui-form-item">
+                    <div class="layui-input-block">
+                        <button class="layui-btn" lay-submit="" lay-filter="demo1">开始抽奖</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div class="global_toolbar">
+    <div class="toolbar_content">
+        <div class="css_column" id="shop_cart">
+            <h4>
+                中奖名单
+            </h4>
+            <div id="resultData">
+                <div class="container">
+                    <img src="../images/2.jpg" class="icon" alt="">
+                    <span class="username">张三</span>
+                </div>
+                <div class="container">
+                    <img src="../images/2.jpg" class="icon" alt="">
+                    <span class="username">李四</span>
+                </div>
+                <div class="container">
+                    <img src="../images/2.jpg" class="icon" alt="">
+                    <span class="username">赵子龙</span>
+                </div>
+                <div class="container">
+                    <img src="../images/2.jpg" class="icon" alt="">
+                    <span class="username">马化腾</span>
+                </div>
+                <div class="container">
+                    <img src="../images/2.jpg" class="icon" alt="">
+                    <span class="username">习大大</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+<script src="../lib/photo_wall.js"></script>
+<script src="../layui/layui.js" charset="utf-8"></script>
+</html>
