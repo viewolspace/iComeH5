@@ -1,3 +1,4 @@
+/*右侧悬浮*/
 .global_toolbar.default {
     position: absolute
 }
@@ -20,7 +21,7 @@
 }
 
 .global_toolbar.open {
-    width: 320px
+    width: 200px
 }
 
 .css_column, .toolbar_content {
@@ -66,8 +67,9 @@
 
 .container {
     display: -webkit-box;
-    -webkit-box-pack: center;
+    /*-webkit-box-pack: center;*/
     height: 60px;
+    margin-left: 10px;
 }
 .icon {
     border-radius:50px;
@@ -82,6 +84,8 @@
     line-height: 50px;
 }
 
+
+/*左侧悬浮*/
 * {
     margin: 0;
     padding: 0;
@@ -119,7 +123,7 @@
 }
 
 .change-type .showListType {
-    width: 300px;
+    width: 200px;
     transition: width 0.4s;
     -moz-transition: width 0.4s;
     -webkit-transition: width 0.4s;
