@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>首页</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+    <script src="lib/jquery.min.js"></script>
+    <script type="text/javascript" src="https://api-icome.enn.cn/iCome.js"></script>
+</head>
+<body>
+<button id="signed">签到</button>
+</body>
+
+<script>
+
+
+    $(document).ready(function(){
+        iCom.config({
+            appId:"app_10000061",
+            nonceStr:"onboxs",
+            timestamp:new Date().getTime() + '',
+            signature:'sianature',
+            jsApiList:[
+                "device.scanQRCode"
+            ]
+        });
+//
+        iCom.ready(function(){
+
+            $("#signed").click(function(){
+                iCom.device.scanQRCode({
+                    success:function(data){
+                        alert(JSON.stringify(data));
+                    },
+                    fail:function(error){
+                        alert(JSON.stringify(error));
+                    }
+                });
+            });
+        });
+
+        iCom.error(function (error) {
+            alert(JSON.stringify(error));
+        });
+    });
+
+
+</script>
+
+</html>
