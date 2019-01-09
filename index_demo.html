@@ -1,0 +1,624 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <title>Demo app</title>
+  <style type="text/css">
+    .api {
+      text-align: center;
+      padding-top: 10px;
+      padding-bottom: 10px;
+    }
+
+    .api button {
+      font-size: 16px;
+    }
+  </style>
+  <script type="text/javascript" src="https://api-icome.enn.cn/iCome.js"></script>
+  <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+  <script>
+    window.onOptionMenuClick1 = function () {
+      alert('option menu click 1');
+    }
+    window.onOptionMenuClick2 = function () {
+      alert('option menu click 2');
+    }
+    window.onOptionMenuClick3 = function () {
+      alert('option menu click 3');
+    }
+    var $config = {
+      authData: {
+        jsApiList: [
+          "webview.showOptionMenu",
+          "webview.showCloseBtn",
+          "webview.hideOptionMenu",
+          "webview.hideCloseBtn",
+          "webview.hideWebViewToolbar",
+          "webview.showWebViewToolbar",
+          "device.selectPhotos",
+          "system.getUserInfo",
+          "system.selectUser",
+          "system.selectOrg",
+          "system.openChat",
+          "system.selectGroup",
+          "system.openGroupChat",
+          "system.showUserInfo",
+          "device.scanQRCode",
+          "device.call",
+          "device.getLocation",
+          "device.checkLocation",
+          "system.shareToICOM",
+          "webview.setOptionMenu",
+          "device.uploadFile",
+          "device.previewFile",
+          "device.snapshot",
+          "system.shareToWechat",
+          "system.createMultChat",
+          "system.openVideoConf",
+          "device.uploadFileToServer",
+          "system.showNews",
+          "system.openNativeMethod",
+          "getToken",
+          "system.openWeChatApplet"
+        ]
+      }
+    };
+  </script>
+
+</head>
+<body id="demo">
+
+<script type="text/javascript">
+  function appendAPIButton(apiName) {
+    var div = document.createElement("div");
+    div.className = "api";
+    var button = document.createElement("button");
+    button.id = apiName;
+    var text = document.createTextNode(apiName);
+    button.appendChild(text);
+    div.appendChild(button);
+    if (apiName === 'system.openVideoConf') $(div).prepend("<input id='confId' placeholder='输入会议号'  type='text' />")
+    document.body.appendChild(div);
+  }</script>
+<script type="text/javascript">
+
+  function getUrlParameter(sParam) {
+      var sPageURL = decodeURIComponent(window.location.search.substring(1)),
+          sURLVariables = sPageURL.split('&'),
+          sParameterName,
+          i;
+
+      for (i = 0; i < sURLVariables.length; i++) {
+          sParameterName = sURLVariables[i].split('=');
+
+          if (sParameterName[0] === sParam) {
+              return sParameterName[1] === undefined ? true : sParameterName[1];
+          }
+      }
+  };
+  var fileServerURL = "https://icome.enncloud.cn:44184/fileserver/file/sendFile?ticket="+ getUrlParameter('ticket');
+    $config.authData.appId = "app_10000084";
+    $config.authData.nonceStr = 123;
+    $config.authData.timestamp = 65;
+    $config.authData.signature = "string";
+    iCom.config($config.authData);
+    iCom.ready(function () {
+      alert("JS 权限验证成功！");
+      var eventListeners = {
+        "webview.getUserAgent": function () {
+          iCom.webview.getUserAgent({
+            success: function (data) {
+              alert(JSON.stringify(data));
+            },
+            fail: function (error) {
+              alert("获取UserAgent失败：" + JSON.stringify(error));
+            }
+          });
+        },
+        "webview.close": function () {
+          iCom.webview.close();
+        },
+        "webview.back": function () {
+          iCom.webview.back();
+        },
+        "webview.showOptionMenu": function () {
+          iCom.webview.showOptionMenu();
+        },
+        "webview.hideOptionMenu": function () {
+          iCom.webview.hideOptionMenu();
+        },
+        "device.getNetworkType": function () {
+          iCom.device.getNetworkType({
+            success: function (data) {
+              alert(JSON.stringify(data));
+            },
+            fail: function (error) {
+              alert(JSON.stringify(error));
+            }
+          });
+        },
+        "webview.hideWebViewToolbar": function () {
+          iCom.webview.hideWebViewToolbar();
+        },
+        "webview.showWebViewToolbar": function () {
+          iCom.webview.showWebViewToolbar({});
+        },
+        "device.selectPhotos": function () {
+          iCom.device.selectPhotos({
+            amount: 5,
+            success: function (data) {
+              alert(data)
+            },
+            fail: function (error) {
+              alert("选择图片失败：" + JSON.stringify(error));
+            }
+          });
+        },
+        "system.getUserInfo": function () {
+          iCom.system.getUserInfo({
+            success: function (data) {
+              alert(JSON.stringify(data));
+            },
+            fail: function (error) {
+              alert("获取用户信息失败：" + JSON.stringify(error));
+            }
+          });
+        },
+        "system.selectUser": function () {
+          iCom.system.selectUser({
+            success: function (data) {
+              alert(JSON.stringify(data));
+            },
+            fail: function (error) {
+              alert("选择用户信息失败：" + JSON.stringify(error));
+            }
+          })
+        },
+        "system.selectOrg": function () {
+          iCom.system.selectOrg({
+            success: function (data) {
+              alert(JSON.stringify(data));
+            },
+            fail: function (error) {
+              alert("选择组织信息失败：" + JSON.stringify(error));
+            }
+          })
+        },
+        "system.openChat": function () {
+          alert('请先选择一个联系人');
+          iCom.system.selectUser({
+            success: function (data) {
+              alert("你选择了联系人：" + data[0].userName);
+              iCom.system.openChat({
+                userId: data[0].userId,
+                userName: data[0].userName,
+                success: function () {
+                  console.log()
+                },
+                fail: function (error) {
+                  alert("打开聊天会话失败：" + JSON.stringify(error));
+                }
+              })
+            },
+            fail: function (error) {
+              alert("选择用户信息失败：" + JSON.stringify(error));
+            }
+          });
+        },
+        "system.createMultChat": function () {
+          alert('请先选择会话');
+          iCom.system.getUserInfo({
+            success: function (userInfo) {
+              iCom.system.selectUser({
+                success: function (users) {
+                  iCom.system.createMultChat({
+                    "eId": userInfo.userId,
+                    "eName": userInfo.userName,
+                    "gName": users.map(function (item) {
+                      return item.userName;
+                    }).join('、'),
+                    "eIds": users.map(function (item) {
+                      return item.userId
+                    }),
+                    success: function (data) {
+                      alert('创建会话成功：' + JSON.stringify(data))
+                    },
+                    fail: function (err) {
+                      alert('创建会话失败：' + JSON.stringify(err))
+                    }
+                  });
+                },
+                fail: function (error) {
+                  alert("选择用户信息失败：" + JSON.stringify(error));
+                }
+              })
+            },
+            fail: function (error) {
+              alert("获取用户信息失败：" + JSON.stringify(error));
+            }
+          })
+
+        },
+        "system.openVideoConf": function () {
+          var confId = $('#confId').val();
+          confId && confId.length ?
+            iCom.system.openVideoConf({
+              "vcId": confId,
+              success: function (data) {
+                  alert(JSON.stringify(data))
+              },
+              fail: function (err) {
+                alert(JSON.stringify(err))
+              }
+            }) : alert('请先输入会议号!');
+        },
+        "system.selectGroup": function () {
+          iCom.system.selectGroup({
+            success: function (data) {
+              alert(JSON.stringify(data));
+            },
+            fail: function (error) {
+              alert("选择会话信息失败：" + JSON.stringify(error));
+            }
+          })
+        },
+        "system.openGroupChat": function () {
+          alert("请先选择要打开的会话");
+          iCom.system.selectGroup({
+            success: function (data) {
+              iCom.system.openGroupChat({
+                groupId: data.groupId,
+                success: function (data) {
+                  alert(JSON.stringify(data));
+                },
+                fail: function (error) {
+                  alert("选择会话信息失败：" + JSON.stringify(error));
+                }
+              })
+            },
+            fail: function (error) {
+              alert("选择会话信息失败：" + JSON.stringify(error));
+            }
+          })
+        },
+        "system.showNews": function () {
+          iCom.system.showNews({
+            title: '地产',
+	        news:[{dId:'drt_10000005', dName: '测试iCome'}, {dId:'drt_10000006', dName: '集团新闻'}, {dId:'drt_10000007', dName: '集团公告'}],
+            success: function (data) {
+	          alert('打开新闻栏目成功');
+            },
+            fail: function (error) {
+              alert("打开新闻栏目失败:" + JSON.stringify(error));
+            }
+          })
+        },
+        "system.openWeChatApplet": function () {
+          iCom.system.openWeChatApplet({
+            appletId: 'gh_79fbe8c72d16',
+            success: function (data) {
+              alert('打微信小程序成功');
+            },
+            fail: function (error) {
+              alert("打开微信小程序失败:" + JSON.stringify(error));
+            }
+          })
+        },
+        "system.openNativeMethod": function () {
+          iCom.system.openNativeMethod({
+            method: 'showNews',
+            param: {
+              title: '地产',
+              news:[{dId:'drt_10000005', dName: '测试iCome'}, {dId:'drt_10000006', dName: '集团新闻'}, {dId:'drt_10000007', dName: '集团公告'}]
+            },
+            success: function (data) {
+              alert('打开新闻栏目成功');
+            },
+            fail: function (error) {
+              alert("打开新闻栏目失败:" + JSON.stringify(error));
+            }
+          })
+        },
+        "getToken": function () {
+          iCom.system.openNativeMethod({
+            method: 'getToken',
+            param: {},
+            success: function (data) {
+              alert("token:" + JSON.stringify(data));
+            },
+            fail: function (error) {
+              alert("获取token失败:" + JSON.stringify(error));
+            }
+          })
+        },
+        "system.showUserInfo": function () {
+          alert("请先选择一个用户");
+
+          iCom.system.selectUser({
+            success: function (data) {
+              alert("你选择了联系人：" + data[0].userName);
+              iCom.system.showUserInfo({
+                userId: data[0].userId,
+                success: function () {
+                  //
+                },
+                fail: function (error) {
+                  alert("显示用户信息失败：" + JSON.stringify(error));
+                }
+              });
+            },
+            fail: function (error) {
+              alert("选择用户信息失败：" + JSON.stringify(error));
+
+            }
+          })
+        },
+        "device.scanQRCode": function () {
+          iCom.device.scanQRCode({
+            success: function (data) {
+              alert(JSON.stringify(data));
+            },
+            fail: function (error) {
+              alert("扫描QR信息失败：" + JSON.stringify(error));
+            }
+          })
+        },
+        "device.call": function () {
+          iCom.device.call({
+            tel: 10086,
+            success: function (data) {
+              alert(JSON.stringify(data));
+            },
+            fail: function (error) {
+              alert("扫描QR信息失败：" + JSON.stringify(error));
+            }
+          })
+        },
+        "device.getLocation": function () {
+          iCom.device.getLocation({
+            success: function (data) {
+              alert(JSON.stringify(data));
+            },
+            fail: function (error) {
+              alert("获取当前位置信息失败：" + JSON.stringify(error));
+            }
+          })
+        },
+        "device.checkLocation": function () {
+          iCom.device.checkLocation({
+            longitude: 116.623618,
+            latitude: 40.064477,
+            success: function (data) {
+              //alert(JSON.stringify(data));
+            },
+            fail: function (error) {
+              alert("无法打开当前位置失败：" + JSON.stringify(error));
+            }
+          })
+        },
+        "system.shareToICOM": function () {
+          iCom.system.shareToICOM({
+            "shareType": 7,
+            "targetURL": "https://www.baidu.com",
+            "title": "百度",
+            "imageURL": image,
+            "summary": "百度搜索",
+            "appName": "测试",
+            "extOption": 1,
+            success: function (data) {
+              alert('分享成功！');
+            },
+            fail: function (err) {
+              alert('分享失败！');
+            }
+          });
+        },
+        "system.shareToICOM2": function () {
+          iCom.system.shareToICOM({
+            "shareType": 7,
+            "targetURL": "https://www.baidu.com",
+            "title": "百度",
+            "imageURL": image,
+            "summary": "百度搜索",
+            "appName": "测试",
+            "extOption": 2,
+            success: function (data) {
+              alert('分享成功！');
+            },
+            fail: function (err) {
+              alert('分享失败！');
+            }
+          });
+        },
+        "webview.setOptionMenu": function () {
+          iCom.webview.setOptionMenu({
+            iconId: 1,
+            onClick: "onOptionMenuClick1",
+            success: function () {
+              alert('设置 + 按钮成功');
+            },
+            fail: function () {
+              alert('设置 + 按钮失败');
+            }
+          });
+        },
+        "webview.setOptionMenu2": function () {
+          iCom.webview.setOptionMenu({
+            iconId: 2, onClick: "onOptionMenuClick2",
+            success: function () {
+              alert('设置 ... 按钮成功');
+            },
+            fail: function () {
+              alert('设置 ... 按钮失败');
+            }
+          });
+        },
+        "webview.showCloseBtn": function () {
+          iCom.webview.showCloseBtn();
+        },
+        "webview.hideCloseBtn": function () {
+          iCom.webview.hideCloseBtn();
+        },
+        "webview.setOptionMenu4": function () {
+          iCom.webview.setOptionMenu({
+            iconId: 4,
+            onClick: "onOptionMenuClick3",
+            success: function () {
+              alert('设置 竖... 成功');
+            },
+            fail: function () {
+              alert('设置 竖... 失败');
+            }
+          });
+        },
+        "webview.setOptionMenu3": function () {
+          iCom.webview.setOptionMenu({
+            iconId: 3,
+            onClick: "onOptionMenuClick3",
+            success: function () {
+              alert('设置 放大镜 成功');
+            },
+            fail: function () {
+              alert('设置放大镜失败');
+            }
+          });
+        },
+        "device.uploadFile": function () {
+          iCom.device.uploadFile({
+            serverUrl: "http://124.205.25.6/vep/api/common/files?token=icom123456&fileType=task_info",
+            success: function (data) {
+              alert('上传文件成功:' + JSON.stringify(data));
+            },
+            fail: function (error) {
+              alert(JSON.stringify(error))
+            }
+          });
+        },
+        "device.uploadFileToServer": function () {
+          iCom.device.uploadFileToServer({
+            serverUrl: fileServerURL,
+            success: function (data) {
+              alert('上传文件成功:' + JSON.stringify(data));
+            },
+            fail: function (error) {
+              alert('上传文件成功:' + JSON.stringify(error))
+            }
+          });
+        },
+        "device.previewFile": function () {
+          iCom.device.previewFile({
+            serverUrl: "http://183.196.130.125:9001/sdk/js/test.xls",
+            "ext": {
+              "fileId": "ff8080815871542f015871587ce30000",
+              "fileType": "image/jpeg",
+              "fileName": "federer.jpeg",
+              "fileSize": 6060,
+              "fileFormat": "UTF-8"
+            },
+            success: function () {
+              alert('下载文件成功');
+            },
+            fail: function (error) {
+              alert(JSON.stringify(error))
+            }
+          });
+        },
+        "device.snapshot": function () {
+          iCom.device.snapshot({
+            success: function (data) {
+              alert(data);
+            },
+            fail: function (err) {
+              alert(JSON.stringify(err));
+            }
+          });
+        },
+        "system.shareToWechat": function () {
+          alert('分享给好友');
+          iCom.system.shareToWechat({
+            "type": 1,
+            "shareType": 3,
+            "title": "百度一下",
+            "text": "百度一下，你就知道!",
+            "imageUrl": "https://ss0.bdstatic.com/5aV1bjqh_Q23odCf/static/superman/img/logo/bd_logo1_31bdc765.png",
+            "url": "http://www.baidu.com",
+            success: function (data) {
+              alert("分享成功");
+            },
+            fail: function (err) {
+              alert(JSON.stringify(err));
+              if (!err) {
+                alert("未知错误")
+              }
+              else if (err.no === 1) {
+                alert("用户取消");
+              }
+              else if (err.no === 2) {
+                alert("分享失败");
+              }
+            }
+          });
+        },
+        "system.shareToWechat2": function () {
+          alert('分享给朋友圈');
+          iCom.system.shareToWechat({
+            "type": 2,
+            "shareType": 3,
+            "title": "百度一下",
+            "text": "百度一下，你就知道!",
+            "imageUrl": "https://ss0.bdstatic.com/5aV1bjqh_Q23odCf/static/superman/img/logo/bd_logo1_31bdc765.png",
+            "url": "http://www.baidu.com",
+            success: function (data) {
+              alert("分享成功");
+            },
+            fail: function (err) {
+              if (!err) {
+                alert("未知错误")
+              }
+              else if (err.no === 1) {
+                alert("用户取消");
+              }
+              else (err.no === 2)
+              {
+                alert("分享失败");
+              }
+            }
+          });
+        },
+        "open 404 page": function () {
+          window.location.href = "http://xx.xx.xx";
+        }
+      };
+
+      function addEventListenerToButton(apiName) {
+        document.getElementById(apiName).addEventListener('click', eventListeners[apiName]);
+      }
+
+      $config.authData.jsApiList.push('webview.getUserAgent');
+      $config.authData.jsApiList.push('webview.back');
+      $config.authData.jsApiList.push('webview.close');
+      $config.authData.jsApiList.push('device.getNetworkType');
+      $config.authData.jsApiList.push('system.shareToICOM2');
+      $config.authData.jsApiList.push('webview.setOptionMenu2');
+      $config.authData.jsApiList.push('webview.setOptionMenu3');
+      $config.authData.jsApiList.push('webview.setOptionMenu4');
+      $config.authData.jsApiList.push('system.shareToWechat2');
+      $config.authData.jsApiList.push('open 404 page');
+      $config.authData.jsApiList.sort();
+      $config.authData.jsApiList.forEach(appendAPIButton);
+      $config.authData.jsApiList.forEach(addEventListenerToButton);
+    });
+
+  iCom.error(function (error) {
+    alert("JS 权限校验失败： " + JSON.stringify(error));
+  });
+
+  var image = "data:image/png;base64,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";
+</script>
+</body>
+</html>
