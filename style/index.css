@@ -1,0 +1,155 @@
+body {
+    background-image: url("../images/background.png");
+    -webkit-background-size: 100% auto;
+    background-size: 100% auto;
+    padding: 10px 0 20px 0;
+}
+
+img {
+    max-width: 100%;
+}
+
+a {
+    text-decoration: none
+}
+
+.logo {
+    text-align: center;
+}
+
+.logo img {
+    width: 100px;
+}
+
+.slogan {
+    margin-top: 13px;
+    text-align: center;
+}
+
+.slogan img {
+    width: 335px;
+}
+
+.title {
+    margin-top: 2px;
+    text-align: center;
+}
+
+.title img {
+    width: 393px;
+}
+
+.sign {
+    text-align: center;
+    margin-top: -9px;
+}
+
+.sign img {
+    width: 230px;
+}
+
+.user {
+    margin-top: -37px;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.user .avatar {
+    background-image: url("../images/avatar.png");
+    background-size: 100%;
+    width: 184px;
+    height: 200px;
+    display: inline-block;
+}
+
+.user .avatar img {
+    margin-top: 17px;
+    width: 153px;
+    height: 153px;
+}
+
+.user .name {
+    margin-top: -1px;
+    background-image: url("../images/name.png");
+    background-size: 100%;
+    background-repeat: no-repeat;
+    width: 160px;
+    color: #ffffff;
+    letter-spacing: 3px;
+    padding: 8px 0;
+    display: inline-block;
+}
+
+.live {
+    margin-top: 5px;
+    text-align: center;
+    position: relative;
+    z-index: -9999;
+}
+
+.live img {
+    width: 340px;
+}
+
+.live .top {
+    position: absolute;
+    width: 100%;
+    top: 67px;
+
+}
+
+.live .top a {
+    color: #fdc42b;
+    font-size: 18px;
+    letter-spacing: 4px;
+}
+
+
+.live .bottom {
+    position: absolute;
+    width: 100%;
+    bottom: 85px;
+}
+
+.live .bottom a {
+    color: #fdc42b;
+    font-size: 20px;
+    letter-spacing: 4px;
+}
+
+.awards-container {
+    text-align: center;
+    margin-top: -29px;
+}
+
+.awards-container .awards {
+    background-image: url("../images/awards.png");
+    background-size: 100%;
+    background-repeat: no-repeat;
+    display: inline-block;
+    color: #fdc42b;
+    font-size: 20px;
+    width: 332px;
+    padding: 30px 0;
+
+}
+
+@media only screen and (max-width: 340px) {
+
+    .live .top {
+        top: 58px;
+    }
+
+    .live .top a {
+        font-size: 16px;
+    }
+
+    .live .bottom {
+        bottom: 76px;
+    }
+
+    .live .bottom a {
+        font-size: 18px;
+    }
+
+}
