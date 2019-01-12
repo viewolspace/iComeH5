@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
     <link rel="stylesheet" href="../style/animate.min.css">
-
+    <link rel="stylesheet" href="../style/grid.css">
     <style>
         html, body {
             height: 100%;
@@ -123,28 +123,87 @@
 <script src="../lib/tween.min.js"></script>
 <script src="../lib/TrackballControls.js"></script>
 <script src="../lib/CSS3DRenderer.js"></script>
+<div class="grid">
+    <div id="container"></div>
+    <div id="info"></div>
+    <div id="menu">
+        <button id="fast">加快</button>
+        <button id="reset">还原</button>
+        <button id="luckBtn">抽奖</button>
+    </div>
 
-<div id="container"></div>
-<div id="info"></div>
-<div id="menu">
-    <button id="fast">加快</button>
-    <button id="reset">还原</button>
+    <div class="show_info animated" style="display:none;">
+        <div class="info_my" >
+            <img style="border-radius:100px" src="" width="100px" height="100px" id="comeUser" />
+            <div class="info_mem">
+                <div class="nickname"></div>
+                <div class="id"></div>
+                <div class="vote"></div>
+            </div>
+        </div>
+        <div class="intro" id="userName">欢迎XXXX</div>
+    </div>
 
-</div>
+    <!-- 展示中奖名单，中奖位置-->
+    <div id="luckDiv" class="popluck" style="display:none">
+    </div>
 
-<div class="show_info animated" style="display:none;">
-    <div class="info_my" >
-        <img style="border-radius:100px" src="" width="100px" height="100px" id="comeUser" />
-        <div class="info_mem">
-            <div class="nickname"></div>
-            <div class="id"></div>
-            <div class="vote"></div>
+    <div id="leftDiv" class="grid-cell none side" style="height: 100%">
+        <div class="text-center title">奖项设置</div>
+        <div class="grid lottery-info">
+            <div class="grid-cell grid">
+                <div class="grid-cell">签到人数</div>
+            </div>
+            <div class="grid-cell">
+                <input type="text" name="joinNum" id="joinNum" disabled>
+            </div>
+        </div>
+        <div class="grid lottery-info">
+            <div class="grid-cell grid">
+                <div class="grid-cell">选择奖项</div>
+            </div>
+            <div class="grid-cell">
+                <select name="rewardLevel" id="rewardLevel">
+                    <option value="1" selected>特等奖</option>
+                    <option value="2">一等奖</option>
+                    <option value="3">二等奖</option>
+                    <option value="4">三等奖</option>
+                    <option value="5">参与奖</option>
+                </select>
+            </div>
+        </div>
+        <div class="grid lottery-info">
+            <div class="grid-cell grid">
+                <div class="grid-cell">抽奖人数</div>
+            </div>
+            <div class="grid-cell">
+                <input type="text" name="rewardNum" id="rewardNum" value="3" disabled >
+            </div>
+        </div>
+        <div class="grid lottery-info">
+            <div class="grid-cell grid">
+                <div class="grid-cell">年会奖品</div>
+            </div>
+            <div class="grid-cell">
+                <input type="text" name="rewardName" id="rewardName" value="苹果手机" disabled >
+            </div>
+        </div>
+        <div>
+            <button id="startLuck">开始抽奖</button>
+        </div>
+
+    </div>
+    <div class="grid-cell auto"></div>
+    <div id="rightDiv" class="grid-cell none side">
+        <div class="text-center title">中奖名单</div>
+        <div id="resultData">
+
         </div>
     </div>
-    <div class="intro" id="userName">欢迎XXXX</div>
 </div>
+
 
 </body>
 <script src="../lib/photo_wall.js"></script>
-
+<script src="https://www.helloweba.net/demo/fly/jquery.fly.min.js" charset="utf-8"></script>
 </html>
