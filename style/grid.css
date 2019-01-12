@@ -159,10 +159,11 @@ body > div > div {
     position: fixed;
     background-color: rgba(0, 0, 0, .50);
     padding: 10px;
-    min-height: 100px;
-    max-height: 200px;
+    min-height: 110px;
+    max-height: 220px;
     width: 500px;
-    /*height: 200px;*/
+    /*height: 100%;*/
+    overflow-y: auto;
     margin: 0 auto;
     left: 0;
     right: 0;
@@ -183,6 +184,7 @@ body > div > div {
     float: left;
     width: 100px;
     height: 100px;
+    margin: 5px;
 }
 
 .popluck .single .headpic img{
