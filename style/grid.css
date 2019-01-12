@@ -1,0 +1,145 @@
+html, body {
+    width: 100%;
+    height: 100%;
+    font-size: 16px;
+}
+
+
+body > div {
+    height: 100%;
+}
+
+body > div > div {
+    /*height: 100%;*/
+}
+
+.text-center {
+    text-align: center !important;
+}
+
+.side {
+    width: 13rem;
+    background: rgba(191, 191, 191, 0.4);
+    padding: 1rem;
+    box-sizing: border-box;
+    overflow: auto;
+    z-index: 10000;
+}
+
+.side:first-child {
+    border-right: 2px solid rgb(234, 190, 255);
+}
+
+
+.side:last-child {
+    border-left: 2px solid rgb(234, 190, 255);
+}
+
+.side .title {
+    font-size: 1.7rem;
+    color: #ebc994;
+}
+
+.side .lottery-info {
+    font-size: 1rem;
+    margin-top: 1rem;
+    color: #e6bdff;
+}
+
+.side .lottery-info input, .side .lottery-info select {
+    width: 100%;
+    border-width: 1px;
+    border-color: rgb(150, 107, 165);
+    border-style: solid;
+    background-color: rgba(24, 0, 41, 0.549);
+    padding: .5rem 0;
+    font-size: 1rem;
+    color: #fff;
+    text-align: center;
+    border-radius: 0;
+    -webkit-appearance: none;
+    text-align-last: center;
+}
+
+.side .winner {
+    margin-top: .6rem;
+}
+
+.side .winner img {
+    width: 3.2rem;
+    height: 3.2rem;
+    border: 1px solid rgb(150, 107, 165);
+    border-radius: 1.6rem;
+    z-index: 999;
+
+}
+
+.side .winner .name {
+    border-width: 2px;
+    border-color: rgb(150, 107, 165);
+    border-style: solid;
+    background-color: rgba(24, 0, 41, 0.549);
+    color: #e6bdff;
+    font-size: 1rem;
+    padding: .5rem 2rem;
+    margin-left: -1.5rem;
+    z-index: -1;
+    box-sizing: border-box;
+}
+
+.grid {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: flex;
+    flex-wrap: wrap;
+    -webkit-flex-flow: row wrap;
+    /*z-index: 10000;*/
+}
+
+.grid.column {
+    flex-direction: column;
+    -webkit-flex-direction: column
+}
+
+.grid > .grid-cell {
+    -webkit-box-flex: 1;
+    box-flex: 1;
+    -webkit-flex: 1;
+    flex: 1;
+    -webkit-justify-content: center;
+    justify-content: center;
+    -webkit-box-pack: center;
+    box-pack: center;
+    -webkit-align-items: center;
+    align-items: center;
+    -webkit-box-align: center;
+    box-align: center
+}
+
+.grid > .grid-cell.space {
+    -webkit-justify-content: space-around;
+    justify-content: space-around;
+    box-pack: justify;
+    -webkit-box-pack: justify
+}
+
+.grid > .grid-cell.left {
+    -webkit-align-items: flex-start;
+    align-items: flex-start;
+    -webkit-box-align: start;
+    box-align: start
+}
+
+.grid > .grid-cell.auto {
+    box-flex: auto;
+    -webkit-flex: auto;
+    flex: auto
+}
+
+.grid > .grid-cell.none {
+    -webkit-box-flex: initial;
+    box-flex: initial;
+    -webkit-flex: initial;
+    flex: initial;
+    display: block;
+}

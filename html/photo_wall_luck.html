@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
     <link rel="stylesheet" href="../style/animate.min.css">
     <link rel="stylesheet" href="../style/luck.css">
-    <link rel="stylesheet" href="../layui/css/layui.css"  media="all">
+    <link rel="stylesheet" href="../style/grid.css">
     <style>
         html, body {
             height: 100%;
@@ -143,7 +143,7 @@
 <script src="../lib/tween.min.js"></script>
 <script src="../lib/TrackballControls.js"></script>
 <script src="../lib/CSS3DRenderer.js"></script>
-
+<div class="grid">
 <div id="container"></div>
 <div id="info"></div>
 <div id="menu">
@@ -201,101 +201,61 @@
     <!--</div>-->
 </div>
 
-<div class="box">
-    <div class="change-type">
-        <div class="type-left" :class="showType == true ? 'showListType':''">
-            <h4>
-                奖项设置
-            </h4>
-            <form class="layui-form" action="" style="margin-top: 5px;" lay-filter="luckSetForm">
-                <div class="layui-form-item">
-                    <label class="layui-form-label">签到人数</label>
-                    <div class="layui-input-inline">
-                        <input type="text" name="joinNum" id="joinNum" disabled autocomplete="off" class="layui-input">
-                    </div>
-                </div>
-
-                <div class="layui-form-item">
-                    <label class="layui-form-label">选择奖项</label>
-                    <div class="layui-input-inline">
-                        <select lay-filter="rewardLevel" name="rewardLevel" id="rewardLevel">
-                            <option value="1" >特等奖</option>
-                            <option value="2">一等奖</option>
-                            <option value="3">二等奖</option>
-                            <option value="4">三等奖</option>
-                            <option value="5" selected>参与奖</option>
-                        </select>
-                    </div>
-                </div>
-
-                <div class="layui-form-item">
-                    <label class="layui-form-label">抽取人数</label>
-                    <div class="layui-input-inline">
-                        <input type="text" name="rewardNum" id="rewardNum" value="3" disabled autocomplete="off" class="layui-input">
-                    </div>
-                </div>
-
-                <div class="layui-form-item">
-                    <label class="layui-form-label">年会奖品</label>
-                    <div class="layui-input-inline">
-                        <input type="text" name="rewardName" id="rewardName" value="苹果手机" disabled autocomplete="off" class="layui-input">
-                    </div>
-                </div>
-
-                <div class="layui-form-item" style="margin-left: 50px">
-                    <div class="layui-input-inline">
-                        <button class="layui-btn" lay-submit="" lay-filter="demo1">开始抽奖</button>
-                    </div>
-                </div>
-            </form>
+<div id="leftDiv" class="grid-cell none side" style="height: 100%">
+    <div class="text-center title">奖项设置</div>
+    <div class="grid lottery-info">
+        <div class="grid-cell grid">
+            <div class="grid-cell">签到人数</div>
+        </div>
+        <div class="grid-cell">
+            <input type="text" name="joinNum" id="joinNum" disabled>
         </div>
     </div>
+    <div class="grid lottery-info">
+        <div class="grid-cell grid">
+            <div class="grid-cell">选择奖项</div>
+        </div>
+        <div class="grid-cell">
+            <select name="rewardLevel" id="rewardLevel">
+                <option value="1" selected>特等奖</option>
+                <option value="2">一等奖</option>
+                <option value="3">二等奖</option>
+                <option value="4">三等奖</option>
+                <option value="5">参与奖</option>
+            </select>
+        </div>
+    </div>
+    <div class="grid lottery-info">
+        <div class="grid-cell grid">
+            <div class="grid-cell">抽奖人数</div>
+        </div>
+        <div class="grid-cell">
+            <input type="text" name="rewardNum" id="rewardNum" value="3" disabled >
+        </div>
+    </div>
+    <div class="grid lottery-info">
+        <div class="grid-cell grid">
+            <div class="grid-cell">年会奖品</div>
+        </div>
+        <div class="grid-cell">
+            <input type="text" name="rewardName" id="rewardName" value="苹果手机" disabled >
+        </div>
+    </div>
+    <div>
+        <button id="startLuck">开始抽奖</button>
+    </div>
+
 </div>
-
-<div class="global_toolbar">
-    <div class="toolbar_content">
-        <div class="css_column" id="shop_cart">
-            <h4>
-                中奖名单
-            </h4>
-            <div id="resultData">
-                <!--获奖者名单，动态生成-->
-                <!--<div class="container">-->
-                    <!--<img src="../images/2.jpg" class="icon" alt="">-->
-                    <!--<span class="username">张三</span>-->
-                <!--</div>-->
-                <!--<div class="container">-->
-                    <!--<img src="../images/2.jpg" class="icon" alt="">-->
-                    <!--<span class="username">李四</span>-->
-                <!--</div>-->
-                <!--<div class="container">-->
-                    <!--<img src="../images/2.jpg" class="icon" alt="">-->
-                    <!--<span class="username">赵子龙</span>-->
-                <!--</div>-->
-                <!--<div class="container">-->
-                    <!--<img src="../images/2.jpg" class="icon" alt="">-->
-                    <!--<span class="username">马化腾</span>-->
-                <!--</div>-->
-                <!--<div class="container">-->
-                    <!--<img src="../images/2.jpg" class="icon" alt="">-->
-                    <!--<span class="username">习大大</span>-->
-                <!--</div>-->
-            </div>
-        </div>
-
-        <div class="m-sidebar">
-            <div class="cart">
-                <i id="end"></i>
-            </div>
-        </div>
-        <div id="msg">已加入中奖名单！</div>
+<div class="grid-cell auto"></div>
+<div id="rightDiv" class="grid-cell none side">
+    <div class="text-center title">中奖名单</div>
+    <div id="resultData">
 
     </div>
 </div>
-
+</div>
 </body>
 <script src="../lib/photo_wall_luck.js"></script>
-<script src="../layui/layui.js" charset="utf-8"></script>
 <script src="https://www.helloweba.net/demo/fly/jquery.fly.min.js" charset="utf-8"></script>
 
 </html>
