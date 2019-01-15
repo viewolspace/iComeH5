@@ -85,7 +85,6 @@ a {
     margin-top: 5px;
     text-align: center;
     position: relative;
-    z-index: -9999;
 }
 
 .live img {
