@@ -1,8 +1,16 @@
-body {
+html {
+    font-size: 16px;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     background-image: url("../images/background.png");
-    -webkit-background-size: 100% auto;
+    background-size: auto 100%;
+}
+
+body {
     background-size: 100% auto;
     padding: 10px 0 20px 0;
+    max-width: 450px;
+    margin: 0 auto;
+    text-align: center;
 }
 
 img {
@@ -11,10 +19,6 @@ img {
 
 a {
     text-decoration: none
-}
-
-.logo {
-    text-align: center;
 }
 
 .logo img {
@@ -27,7 +31,7 @@ a {
 }
 
 .slogan img {
-    width: 335px;
+    width: 300px;
 }
 
 .title {
@@ -81,45 +85,39 @@ a {
     display: inline-block;
 }
 
+.action {
+    margin: 1.2rem 1.5rem 0 1.5rem;
+    padding: 2.8rem 0 2.5rem 0;
+    background-size: 100% auto;
+    background-repeat: no-repeat;
+}
+
+.action a {
+    padding: .8rem 0;
+    background-image: url("../images/bg_btn.png");
+    background-size: 100% auto;
+    background-repeat: no-repeat;
+    color: #ffe272;
+    width: 12rem;
+    font-size: 1rem;
+    display: inline-block;
+}
+
 .live {
-    margin-top: 5px;
-    text-align: center;
-    position: relative;
+    background-image: url("../images/bg_live.png");
 }
 
-.live img {
-    width: 340px;
+.info {
+    background-image: url("../images/bg_info.png");
 }
 
-.live .top {
-    position: absolute;
-    width: 100%;
-    top: 67px;
-
-}
-
-.live .top a {
-    color: #fdc42b;
-    font-size: 18px;
-    letter-spacing: 4px;
-}
-
-
-.live .bottom {
-    position: absolute;
-    width: 100%;
-    bottom: 85px;
-}
-
-.live .bottom a {
-    color: #fdc42b;
-    font-size: 20px;
-    letter-spacing: 4px;
+.vote {
+    background-image: url("../images/bg_to_vote.png");
 }
 
 .awards-container {
     text-align: center;
-    margin-top: -29px;
+    margin-top: 1rem;
 }
 
 .awards-container .awards {
@@ -134,22 +132,3 @@ a {
 
 }
 
-@media only screen and (max-width: 340px) {
-
-    .live .top {
-        top: 58px;
-    }
-
-    .live .top a {
-        font-size: 16px;
-    }
-
-    .live .bottom {
-        bottom: 76px;
-    }
-
-    .live .bottom a {
-        font-size: 18px;
-    }
-
-}
