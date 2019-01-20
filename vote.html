@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+    <title>投票</title>
+    <link rel="stylesheet" href="style/grid.css">
+    <link rel="stylesheet" href="style/vote.css">
+
+    <script src="lib/jquery.min.js"></script>
+    <script type="text/javascript" src="lib/config.js?v=3"></script>
+</head>
+<body>
+<div class="logo">
+    <img src="images/logo.png" alt="">
+</div>
+<div class="title">
+    <img src="images/title_happy.png" alt="">
+</div>
+<div class="time">
+    投票时间：9:00 - 13:00
+</div>
+<div class="programme-container">
+    <div class="programme-list" id="programme-list">
+        <!--节目列表区域-->
+    </div>
+</div>
+<div class="vote">
+    <!--是否已经投票 请切换下图片-->
+    <a id="btnVoted" style="display: none;">
+        <img src="images/btn_voted.png" alt="">
+    </a>
+    <a id="btn_vote">
+        <img src="images/btn_vote.png" alt="">
+    </a>
+    <div class="vote-backend">
+        <div></div>
+    </div>
+</div>
+</body>
+<script type="text/javascript" src="lib/vote.js?v=1"></script>
+</html>
