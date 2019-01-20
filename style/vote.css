@@ -1,0 +1,172 @@
+html, body {
+    font-size: 16px;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+
+}
+
+body {
+    margin: 0 auto;
+    text-align: center;
+    padding: 1rem 0;
+    max-width: 450px;
+    background-image: url("../images/background.png");
+    background-size: auto 100%;
+}
+
+img {
+    max-width: 100%;
+}
+
+.text-left {
+    text-align: left !important;
+}
+
+.logo img {
+    width: 5.7rem;
+}
+
+.title {
+    margin-top: .44rem;
+}
+
+.title img {
+    width: 15rem;
+}
+
+.time {
+    margin-top: 0.3rem;
+    color: #ebc994;
+    font-size: 1.1rem;
+}
+
+.programme-container {
+    border: 2rem solid white;
+    margin: .6rem 2.5rem 0 2.5rem;
+    border-image: url("../images/bg_programme.png") 60 60;
+}
+
+.programme-list {
+    background: white;
+    padding-bottom: 5rem;
+}
+
+.programme-list .ps {
+    color: #e07283;
+    font-size: .87rem;
+}
+
+.programme {
+    padding: 1.4rem 0;
+    border-bottom: 2px dashed #ebc994;
+}
+
+.programme .name {
+    color: #ac7d34;
+    font-size: .9rem;
+}
+
+.programme-progress {
+    margin-top: .4rem;
+}
+
+.progress-container {
+    height: 5px;
+    margin: 0 .8rem 0 0;
+    background: #D5D5D5;
+    border-radius: 3px;
+}
+
+.progress-container .progress {
+    background-color: #DC3D2C;
+    height: 100%;
+    border-radius: 3px;
+}
+
+.progress-desc {
+    font-size: .8rem;
+    color: #ebc994;
+    width: 5rem;
+    padding-left: 5px;
+}
+
+
+.radio-container {
+    display: block;
+    position: relative;
+    padding-left: 24px;
+    margin-bottom: 24px;
+    cursor: pointer;
+    font-size: 22px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+/* Hide the browser's default radio button */
+.radio-container input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+}
+
+/* Create a custom radio button */
+.check-mark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 25px;
+    width: 25px;
+    border: 1px solid #EFD2A2;
+    background-color: #FDEACC;
+    border-radius: 50%;
+}
+
+/* Create the indicator (the dot/circle - hidden when not checked) */
+.check-mark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+/* Show the indicator (dot/circle) when checked */
+.radio-container input:checked ~ .check-mark:after {
+    display: block;
+}
+
+/* Style the indicator (dot/circle) */
+.radio-container .check-mark:after {
+    top: 2px;
+    left: 2px;
+    width: 21px;
+    height: 21px;
+    border-radius: 50%;
+    background: #DC3D2C;
+}
+
+.vote {
+    background: url("../images/bg_vote_front.png") no-repeat;
+    background-size: 100% auto;
+    background-position: 0 100%;
+    margin: -9rem 1.9rem 0 1.9rem;
+    height: 9rem;
+    position: relative;
+}
+
+.vote img {
+    margin-top: 2.5rem;
+    width: 6.8rem;
+}
+
+.vote-backend {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    z-index: -1;
+    height: 9rem;
+    background: url("../images/bg_vote_backend.png") no-repeat;
+    background-size: 100% auto;
+    background-position: 0 100%;
+}
+
+
