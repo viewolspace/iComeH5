@@ -1,0 +1,76 @@
+html, body {
+  font-size: 16px; }
+
+button, textarea {
+  outline: none !important; }
+
+body {
+  background: url("../../images/interactive/background.png") repeat-y;
+  background-size: 100% auto; }
+
+.logo {
+  padding: 8px 12px; }
+  .logo img {
+    width: 80px; }
+
+.topic {
+  padding: 0 36px; }
+  .topic img {
+    width: 100%; }
+
+.question {
+  margin-top: 8px;
+  padding: 0 15px; }
+  .question .content {
+    padding: 17px 14px 7px;
+    background: url("../../images/interactive/background_question.png") no-repeat;
+    background-size: 100% 100%; }
+    .question .content label {
+      position: relative; }
+      .question .content label textarea {
+        height: 110px;
+        width: 100%;
+        padding: 10px 14px;
+        font-size: 1rem;
+        border-radius: 3px; }
+      .question .content label .remain {
+        position: absolute;
+        bottom: 9px;
+        right: 6px;
+        font-size: 12px;
+        color: #999999; }
+    .question .content .tip {
+      font-size: 13px;
+      color: #07dbfa;
+      text-align: center; }
+
+.ask {
+  margin-top: 17px;
+  padding: 0 34px; }
+  .ask button {
+    border: 0;
+    width: 100%;
+    color: #ffffff;
+    padding: 13px 0;
+    font-size: 18px;
+    text-align: center;
+    background: url("../../images/interactive/background_button.png") no-repeat;
+    background-size: 100% 100%; }
+
+.question-list {
+  padding: 0 16px; }
+  .question-list .item {
+    color: #ffffff;
+    position: relative;
+    margin-top: 24px;
+    padding: 15px 19px 25px;
+    font-size: 18px;
+    line-height: 28px;
+    background: url("../../images/interactive/background_question_item.png") no-repeat;
+    background-size: 100% 100%; }
+    .question-list .item .close {
+      position: absolute;
+      right: -8px;
+      top: -12px; }
+      .question-list .item .close img {
+        width: 26px; }
