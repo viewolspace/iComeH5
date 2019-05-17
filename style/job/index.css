@@ -1,7 +1,7 @@
 html, body {
   font-size: 16px; }
 
-button, textarea {
+button, textarea, input {
   outline: none !important; }
 
 body {
@@ -66,6 +66,8 @@ body {
     .content .tip .item {
       font-size: 13px;
       color: #ffffff; }
+      .content .tip .item a {
+        color: #ffffff !important; }
       .content .tip .item:not(:first-child) {
         margin-top: 3px; }
       .content .tip .item:before {
@@ -83,3 +85,50 @@ body {
         background-image: url("../../images/home/icon_sort_3.png"); }
       .content .tip .item:nth-child(4):before {
         background-image: url("../../images/home/icon_sort_4.png"); }
+
+.login {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.8);
+  padding: 0 2rem; }
+  .login .modal {
+    width: 100%;
+    padding: 0 10px; }
+    .login .modal .avatar {
+      text-align: center; }
+      .login .modal .avatar img {
+        width: 62px;
+        border-radius: 56px;
+        border: 2px solid #292f92; }
+    .login .modal .information {
+      padding: 4rem 2.1875rem 2rem;
+      margin-top: -40px;
+      background: url("../../images/home/background_regist.png") no-repeat;
+      background-size: 100% 100%; }
+      .login .modal .information .item {
+        margin-top: 11px; }
+        .login .modal .information .item input {
+          width: 100%;
+          border-radius: 2px;
+          font-size: 1rem;
+          padding: 10px 10px;
+          border: none; }
+        .login .modal .information .item button {
+          border: none;
+          padding: 8px 10px;
+          background: #06DBFA;
+          font-size: 1rem; }
+    .login .modal .commit {
+      margin-top: 2rem; }
+      .login .modal .commit button {
+        border: 0;
+        width: 100%;
+        color: #ffffff;
+        padding: 13px 0;
+        font-size: 18px;
+        text-align: center;
+        background: url("../../images/background_button.png") no-repeat;
+        background-size: 100% 100%; }

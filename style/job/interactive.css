@@ -1,7 +1,7 @@
 html, body {
   font-size: 16px; }
 
-button, textarea {
+button, textarea, input {
   outline: none !important; }
 
 body {
