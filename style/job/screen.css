@@ -8,20 +8,28 @@ body {
   body img {
     max-width: 100%; }
 
-.logo {
+.container-fluid {
+  padding: 0 5vw; }
+
+.left .left-container > div {
+  flex: 1; }
+  .left .left-container > div:first-child {
+    flex: none; }
+
+.left .left-container .logo {
   padding: 16px; }
-  .logo img {
+  .left .left-container .logo img {
     width: 128px; }
 
-.topic {
-  padding: 0 5px 0 60px; }
-  .topic img {
+.left .left-container .topic {
+  padding: 0; }
+  .left .left-container .topic img {
     max-width: 100%; }
 
 .question-list {
   overflow-y: auto;
   height: 100%;
-  padding: 40px 60px 40px 40px;
+  padding: 40px;
   overflow: -moz-scrollbars-none;
   -ms-overflow-style: none;
   -webkit-mask-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0)), color-stop(50%, black), to(rgba(0, 0, 0, 0)));
