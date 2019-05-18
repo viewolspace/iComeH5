@@ -1,134 +1,203 @@
 html, body {
-  font-size: 16px; }
+    font-size: 16px;
+}
 
 button, textarea, input {
-  outline: none !important; }
+    outline: none !important;
+}
 
 body {
-  background: url("../../images/home/background.png") repeat-y;
-  background-size: 100% auto; }
+    background: url("../../images/home/background.png") repeat-y;
+    background-size: 100% auto;
+}
 
 .logo {
-  position: absolute;
-  top: 8px;
-  left: 13px; }
-  .logo img {
-    width: 78px; }
+    position: absolute;
+    top: 8px;
+    left: 13px;
+}
+
+.logo img {
+    width: 78px;
+}
 
 .topic img {
-  width: 100%; }
+    width: 100%;
+}
 
 .content {
-  margin-top: -114px;
-  padding: 0 32px; }
-  .content .personal {
+    margin-top: -114px;
+    padding: 0 32px;
+}
+
+.content .personal {
     position: relative;
     padding: 43px 28px 34px;
     background: url("../../images/home/background_personal.png") no-repeat;
-    background-size: 100% 100%; }
-    .content .personal .avatar {
-      text-align: center;
-      position: absolute;
-      top: -29px;
-      left: 0;
-      right: 0; }
-      .content .personal .avatar img {
-        width: 62px;
-        border-radius: 56px;
-        border: 2px solid #292f92; }
-    .content .personal .information .item {
-      padding: 12px 15px;
-      border-radius: 2px;
-      background: linear-gradient(to bottom, rgba(0, 236, 250, 0.5), rgba(5, 217, 241, 0.5)); }
-      .content .personal .information .item:not(:first-child) {
-        margin-top: 7px; }
-      .content .personal .information .item .title {
-        color: #07dbfa;
-        width: 55px; }
-      .content .personal .information .item .value {
-        color: #ffffff; }
-  .content .process {
-    margin-top: 16px; }
-    .content .process .item {
-      text-align: center;
-      padding: 14px 0;
-      font-size: 18px;
-      color: #fff752;
-      background: url("../../images/home/background_process_item.png") no-repeat;
-      background-size: 100%; }
-      .content .process .item:not(:first-child) {
-        margin-top: 9px; }
-  .content .tip {
+    background-size: 100% 100%;
+}
+
+.content .personal .avatar {
+    text-align: center;
+    position: absolute;
+    top: -29px;
+    left: 0;
+    right: 0;
+}
+
+.content .personal .avatar img {
+    width: 62px;
+    border-radius: 56px;
+    border: 2px solid #292f92;
+}
+
+.content .personal .information .item {
+    padding: 12px 15px;
+    border-radius: 2px;
+    background: linear-gradient(to bottom, rgba(0, 236, 250, 0.5), rgba(5, 217, 241, 0.5));
+}
+
+.content .personal .information .item:not(:first-child) {
+    margin-top: 7px;
+}
+
+.content .personal .information .item .title {
+    color: #07dbfa;
+    width: 55px;
+}
+
+.content .personal .information .item .value {
+    color: #ffffff;
+}
+
+.content .process {
+    margin-top: 16px;
+}
+
+.content .process .item {
+    text-align: center;
+    padding: 14px 0;
+    font-size: 18px;
+    color: #fff752;
+    background: url("../../images/home/background_process_item.png") no-repeat;
+    background-size: 100%;
+}
+
+.content .process .item:not(:first-child) {
+    margin-top: 9px;
+}
+
+.content .tip {
     background: url("../../images/home/background_tip.png") no-repeat;
     background-size: 100%;
     margin-top: 21px;
-    padding: 39px 25px; }
-    .content .tip .item {
-      font-size: 13px;
-      color: #ffffff; }
-      .content .tip .item a {
-        color: #ffffff !important; }
-      .content .tip .item:not(:first-child) {
-        margin-top: 3px; }
-      .content .tip .item:before {
-        background-repeat: no-repeat;
-        background-size: auto 100%;
-        display: inline-block;
-        width: 16px;
-        height: 12px;
-        content: ""; }
-      .content .tip .item:nth-child(1):before {
-        background-image: url("../../images/home/icon_sort_1.png"); }
-      .content .tip .item:nth-child(2):before {
-        background-image: url("../../images/home/icon_sort_2.png"); }
-      .content .tip .item:nth-child(3):before {
-        background-image: url("../../images/home/icon_sort_3.png"); }
-      .content .tip .item:nth-child(4):before {
-        background-image: url("../../images/home/icon_sort_4.png"); }
+    padding: 39px 25px;
+}
+
+.content .tip .item {
+    font-size: 13px;
+    color: #ffffff;
+}
+
+.content .tip .item a {
+    color: #ffffff !important;
+}
+
+.content .tip .item:not(:first-child) {
+    margin-top: 3px;
+}
+
+.content .tip .item:before {
+    background-repeat: no-repeat;
+    background-size: auto 100%;
+    display: inline-block;
+    width: 16px;
+    height: 12px;
+    content: "";
+}
+
+.content .tip .item:nth-child(1):before {
+    background-image: url("../../images/home/icon_sort_1.png");
+}
+
+.content .tip .item:nth-child(2):before {
+    background-image: url("../../images/home/icon_sort_2.png");
+}
+
+.content .tip .item:nth-child(3):before {
+    background-image: url("../../images/home/icon_sort_3.png");
+}
+
+.content .tip .item:nth-child(4):before {
+    background-image: url("../../images/home/icon_sort_4.png");
+}
 
 .login {
-  position: fixed;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  background: rgba(0, 0, 0, 0.8);
-  padding: 0 2rem; }
-  .login .modal {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.8);
+    padding: 0 2rem;
+}
+
+.login > div {
+    height: 100%;
+}
+
+.login .modal {
     width: 100%;
-    padding: 0 10px; }
-    .login .modal .avatar {
-      text-align: center; }
-      .login .modal .avatar img {
-        width: 62px;
-        border-radius: 56px;
-        border: 2px solid #292f92; }
-    .login .modal .information {
-      padding: 4rem 2.1875rem 2rem;
-      margin-top: -40px;
-      background: url("../../images/home/background_regist.png") no-repeat;
-      background-size: 100% 100%; }
-      .login .modal .information .item {
-        margin-top: 11px; }
-        .login .modal .information .item input {
-          width: 100%;
-          border-radius: 2px;
-          font-size: 1rem;
-          padding: 10px 10px;
-          border: none; }
-        .login .modal .information .item button {
-          border: none;
-          padding: 8px 10px;
-          background: #06DBFA;
-          font-size: 1rem; }
-    .login .modal .commit {
-      margin-top: 2rem; }
-      .login .modal .commit button {
-        border: 0;
-        width: 100%;
-        color: #ffffff;
-        padding: 13px 0;
-        font-size: 18px;
-        text-align: center;
-        background: url("../../images/background_button.png") no-repeat;
-        background-size: 100% 100%; }
+    padding: 0 10px;
+}
+
+.login .modal .avatar {
+    text-align: center;
+}
+
+.login .modal .avatar img {
+    width: 62px;
+    border-radius: 56px;
+    border: 2px solid #292f92;
+}
+
+.login .modal .information {
+    padding: 4rem 2.1875rem 2rem;
+    margin-top: -40px;
+    background: url("../../images/home/background_regist.png") no-repeat;
+    background-size: 100% 100%;
+}
+
+.login .modal .information .item {
+    margin-top: 11px;
+}
+
+.login .modal .information .item input {
+    width: 100%;
+    border-radius: 2px;
+    font-size: 1rem;
+    padding: 10px 10px;
+    border: none;
+}
+
+.login .modal .information .item button {
+    border: none;
+    padding: 8px 10px;
+    background: #06DBFA;
+    font-size: 1rem;
+}
+
+.login .modal .commit {
+    margin-top: 2rem;
+}
+
+.login .modal .commit button {
+    border: 0;
+    width: 100%;
+    color: #ffffff;
+    padding: 13px 0;
+    font-size: 18px;
+    text-align: center;
+    background: url("../../images/background_button.png") no-repeat;
+    background-size: 100% 100%;
+}

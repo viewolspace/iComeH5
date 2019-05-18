@@ -7,8 +7,8 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
     <meta name="format-detection" content="telephone=no">
     <title>耀领秀 新未来</title>
-    <link rel="stylesheet" href="../style/job/grid.min.css">
-    <link rel="stylesheet" href="../style/job/index.css">
+    <link rel="stylesheet" href="../style/job/grid.min.css?v=4">
+    <link rel="stylesheet" href="../style/job/index.css?v=4">
 
     <script src="../lib/config.js"></script>
     <script src="../lib/jquery.min.js"></script>
@@ -62,13 +62,35 @@
         <div class="item">留好交通票据，HR小姐姐为你报销~</div>
         <div class="item">如有校园招聘相关疑问，请联系小刘姐姐0316-2599696</div>
     </div>
+</div>
 
-    <input name="userName" id="userName" type="hidden" value="石磊">
-    <input name="phone" id="phone" type="hidden" value="18801156799">
-    <input name="school" id="school" type="hidden" value="北京大学">
-    <input name="position" id="position" type="hidden" value="计算机">
-    <input name="pic" id="pic" type="hidden" value="">
+<div class="login" id="regDiv" style="display: none">
+    <div class=" d-flex flex-row align-items-center">
+        <div class="modal">
+            <div class="avatar">
+                <img src="../images/job_avatar.png" alt="" id="showHead">
+            </div>
+            <div class="information">
+                <div class="row item"><input name="userName" id="userName" type="text" placeholder="姓 名"></div>
+                <div class="row item"><input name="school" id="school" type="text" placeholder="学 校"></div>
+                <div class="row item"><input name="position" id="position" type="text" placeholder="专 业"></div>
+                <div class="row item"><input name="phone" id="phone" type="text" placeholder="电话号"></div>
+                <input name="pic" id="pic" type="hidden" value="">
+                <div class="row item">
+                    <div class="col p-0">
+                        <input type="text" name="rand" id="rand" placeholder="验证码">
+                    </div>
+                    <div class="col-auto pr-0">
+                        <button id="sendSmsBtn">获取验证码</button>
+                    </div>
+                </div>
+            </div>
+            <div class="commit">
+                <button id="addUserBtn">提交</button>
+            </div>
+        </div>
+    </div>
 </div>
 </body>
-<script src="../lib/job_index.js?ver=1"></script>
+<script src="../lib/job_index.js?ver=3"></script>
 </html>
