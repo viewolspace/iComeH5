@@ -1,0 +1,74 @@
+html, body {
+  height: 100%; }
+
+body {
+  background: url("../../images/screen/background.png") repeat-y;
+  background-size: 100% auto;
+  overflow: hidden; }
+  body img {
+    max-width: 100%; }
+
+.container-fluid {
+  padding: 0 5vw; }
+
+.left .left-container > div {
+  flex: 1; }
+  .left .left-container > div:first-child {
+    flex: none; }
+
+.left .left-container .logo {
+  padding: 16px; }
+  .left .left-container .logo img {
+    width: 128px; }
+
+.left .left-container .topic {
+  padding: 0; }
+  .left .left-container .topic img {
+    max-width: 100%; }
+
+.question-list {
+  overflow-y: auto;
+  height: 100%;
+  padding: 40px;
+  overflow: -moz-scrollbars-none;
+  -ms-overflow-style: none;
+  /*-webkit-mask-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0)), color-stop(50%, black), to(rgba(0, 0, 0, 0)));*/
+  /*-webkit-mask-image: -webkit-linear-gradient(top, rgba(0, 0, 0, 0) 0%, black 50%, rgba(0, 0, 0, 0) 100%);*/
+  /*mask-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0)), color-stop(50%, black), to(rgba(0, 0, 0, 0)));*/
+  /*mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, black 50%, rgba(0, 0, 0, 0) 100%); */
+}
+  .question-list::-webkit-scrollbar {
+    width: 0 !important; }
+
+.modal {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.8); }
+
+.question-list .item, .modal .item {
+  margin-top: 20px; }
+  .question-list .item .avatar img, .modal .item .avatar img {
+    width: 48px;
+    border-radius: 48px;
+    box-sizing: border-box;
+    border: 2px solid #292f92; }
+  .question-list .item .name, .modal .item .name {
+    color: #ffffff;
+    font-size: 20px;
+    padding-left: 6px; }
+  .question-list .item .question, .modal .item .question {
+    background: url("../../images/screen/background_question.png") no-repeat;
+    background-size: 100% 100%;
+    padding: 18px 23px;
+    color: #44c8ff;
+    font-size: 20px; }
+
+.mascot {
+  position: fixed;
+  bottom: 0;
+  right: 9px; }
+  .mascot img {
+    width: 94px; }
